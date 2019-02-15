@@ -4,6 +4,7 @@ import {
 } from 'electron'
 import path from 'path'
 import Sequelize from 'sequelize'
+import * as Models from './models'
 
 // https://qiita.com/progre/items/2718f4ad20eecf27d599
 // macOS - $HOME/Library/Application Support/{{ package name }}
@@ -11,19 +12,12 @@ import Sequelize from 'sequelize'
 // pakcage name : run dev で 'Electron'
 const _dbfile = path.join(app.getPath('userData'), 'evue.db')
 const _backend = {dialect: 'sqlite', storage: _dbfile}
-const models = {
+const orm = {
   backend: new Sequelize('eveu', '', '', _backend)
 }
 
-models.Video = models.backend.define('video', {
-  id: {
-    type: Sequelize.INTEGER,
-    primaryKey: true,
-    autoIncrement: true
-  },
-  name: Sequelize.STRING
-})
+orm.Video = Models.Video(orm)
+orm.Playlist = Models.Playlist(orm)
+orm.PlaylistVideo = Models.PlaylistVideo(orm)
 
-models.backend.sync()
-
-export default models
+export default orm

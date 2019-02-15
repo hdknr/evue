@@ -1,7 +1,7 @@
 'use strict'
 
 import { app, BrowserWindow } from 'electron'
-import models from './db'
+import orm from './db'
 
 /**
  * Set `__static` path to static files in production
@@ -32,7 +32,13 @@ function createWindow () {
     mainWindow = null
   })
 
-  models.Video.create({name: 'cool'})
+  orm.backend.sync().then(() => {
+    (async () => {
+      let video = await orm.Video.create({name: 'cool'})
+      let playlist = await orm.Playlist.create({name: 'fine'})
+      orm.PlaylistVideo.create({playlist_id: playlist.id, video_id: video.id})
+    })()
+  })
 }
 
 app.on('ready', createWindow)
