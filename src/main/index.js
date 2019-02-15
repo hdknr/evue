@@ -1,7 +1,7 @@
 'use strict'
 
 import { app, BrowserWindow } from 'electron'
-import { initDatabase } from './db'
+import models from './db'
 
 /**
  * Set `__static` path to static files in production
@@ -32,7 +32,7 @@ function createWindow () {
     mainWindow = null
   })
 
-  initDatabase(mainWindow)
+  models.Video.create({name: 'cool'})
 }
 
 app.on('ready', createWindow)
