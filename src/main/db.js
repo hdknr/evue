@@ -1,14 +1,17 @@
 'use strict'
+import { app } from 'electron'
+import path from 'path'
 import sqlite3 from 'sqlite3-offline'
 
+const _dbfile = path.join(app.getPath('temp'), 'evue.db')
+
 export async function initDatabase (mainWindow) {
-  // const db = new sqlite3.Database(':memory:')
-  const db = new sqlite3.Database('/tmp/sample.db')
+  const db = new sqlite3.Database(_dbfile)
 
   db.serialize(function () {
     db.run('CREATE TABLE lorem (info TEXT)')
 
-    var stmt = db.prepare('INSERT INTO lorem VALUES (?)')
+    const stmt = db.prepare('INSERT INTO lorem VALUES (?)')
     for (var i = 0; i < 10; i++) {
       stmt.run('Ipsum ' + i)
     }
