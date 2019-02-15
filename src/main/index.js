@@ -1,6 +1,7 @@
 'use strict'
 
 import { app, BrowserWindow } from 'electron'
+import { initDatabase } from './db'
 
 /**
  * Set `__static` path to static files in production
@@ -30,6 +31,8 @@ function createWindow () {
   mainWindow.on('closed', () => {
     mainWindow = null
   })
+
+  initDatabase(mainWindow)
 }
 
 app.on('ready', createWindow)
