@@ -12,6 +12,7 @@ import Sequelize from 'sequelize'
 const _dbfile = path.join(app.getPath('userData'), 'evue.db')
 
 function initModels () {
+  // http://docs.sequelizejs.com/
   const backend = new Sequelize(
     'eveu', '', '', {
       dialect: 'sqlite',
