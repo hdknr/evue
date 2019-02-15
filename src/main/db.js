@@ -2,7 +2,8 @@
 import sqlite3 from 'sqlite3-offline'
 
 export async function initDatabase (mainWindow) {
-  var db = new sqlite3.Database(':memory:')
+  // const db = new sqlite3.Database(':memory:')
+  const db = new sqlite3.Database('/tmp/sample.db')
 
   db.serialize(function () {
     db.run('CREATE TABLE lorem (info TEXT)')
