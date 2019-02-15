@@ -2,6 +2,18 @@
 
 > Electron Vue Sample
 
+## vue-cli
+
+~~~bash
+$ npm install -g vue-cli
+.
+~~~
+
+~~~bash
+$ vue --version
+2.9.6
+~~~
+
 #### Build Setup
 
 ``` bash
