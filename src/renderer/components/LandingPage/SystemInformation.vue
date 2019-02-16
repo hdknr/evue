@@ -6,7 +6,7 @@
         <div class="name">Path:</div>
         <div class="value">{{ path }}</div>
       </div>
-      <div class="item">
+      <div class="item" v-if="name">
         <div class="name">Route Name:</div>
         <div class="value">{{ name }}</div>
       </div>
@@ -35,9 +35,9 @@
     data () {
       return {
         electron: process.versions.electron,
-        name: this.$route.name,
+        name: (this.$route) ? this.$route.name : '',
         node: process.versions.node,
-        path: this.$route.path,
+        path: (this.$route) ? this.$route.path : '',
         platform: require('os').platform(),
         vue: require('vue/package.json').version
       }
