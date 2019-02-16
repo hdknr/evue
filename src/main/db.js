@@ -6,6 +6,7 @@ import path from 'path'
 import Sequelize from 'sequelize'
 import * as Models from './models'
 
+// userData:
 // https://qiita.com/progre/items/2718f4ad20eecf27d599
 // macOS - $HOME/Library/Application Support/{{ package name }}
 // Windwos - %USERPROFILE%\AppData\Roaming\{{ package name }}

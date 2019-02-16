@@ -33,10 +33,12 @@ function createWindow () {
   })
 
   orm.backend.sync().then(() => {
+    // http://docs.sequelizejs.com/manual/tutorial/models-definition.html#database-synchronization
     (async () => {
       let video = await orm.Video.create({name: 'cool'})
       let playlist = await orm.Playlist.create({name: 'fine'})
-      orm.PlaylistVideo.create({playlist_id: playlist.id, video_id: video.id})
+      // orm.PlaylistVideo.create({playlist_id: playlist.id, video_id: video.id})
+      video.addPlaylist(playlist, {through: {status: 'new'}})
     })()
   })
 }
