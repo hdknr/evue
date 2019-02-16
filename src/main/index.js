@@ -2,6 +2,7 @@
 
 import { app, BrowserWindow } from 'electron'
 import orm from './db'
+import {initWebServer} from './web'
 
 /**
  * Set `__static` path to static files in production
@@ -32,6 +33,7 @@ function createWindow () {
     mainWindow = null
   })
 
+  initWebServer(mainWindow)
   orm.backend.sync().then(() => {
     // http://docs.sequelizejs.com/manual/tutorial/models-definition.html#database-synchronization
     (async () => {

@@ -30,9 +30,16 @@
     "files": [
       "dist/electron/**/*"
     ],
+    "extraResources": [{
+      "from": "src/main/web",
+      "to": ".",
+      "filter": [
+        "**/*",
+        "!*.js"
+      ]
+    }],
     "dmg": {
-      "contents": [
-        {
+      "contents": [{
           "x": 410,
           "y": 150,
           "type": "link",
@@ -58,6 +65,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "babel-plugin-wildcard": "^5.0.0",
+    "express": "^4.16.4",
     "sequelize": "^4.42.0",
     "sqlite3": "^4.0.6",
     "vue": "^2.5.16",
