@@ -30,16 +30,19 @@
     "files": [
       "dist/electron/**/*"
     ],
-    "extraResources": [{
-      "from": "src/main/web",
-      "to": ".",
-      "filter": [
-        "**/*",
-        "!*.js"
-      ]
-    }],
+    "extraResources": [
+      {
+        "from": "src/main/web",
+        "to": ".",
+        "filter": [
+          "**/*",
+          "!*.js"
+        ]
+      }
+    ],
     "dmg": {
-      "contents": [{
+      "contents": [
+        {
           "x": 410,
           "y": 150,
           "type": "link",
