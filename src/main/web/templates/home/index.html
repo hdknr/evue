@@ -1,45 +1,17 @@
-<!DOCTYPE html>
-<html lang="ja">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Home</title>
-  <!-- https://bootstrap-vue.js.org/docs -->
-  <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
-  <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css" />
-</head>
-
-<body>
-  <h1>Hello</h1>
-
-  <div id="app">
-    <b-container>
-      <!-- http://mozilla.github.io/nunjucks/templating.html#for -->
-      {% for video in videos %}
-      <b-row>
-        <b-col>
-          {{ video.id }}
-        </b-col>
-        <b-col>
-          {{ video.name }}
-        </b-col>
-        <b-col></b-col>
-      </b-row>
-      {% endfor %}
-    </b-container>
-  </div>
-
-  <!-- https://bootstrap-vue.js.org/docs -->
-  <script src="//unpkg.com/@babel/polyfill@latest/dist/polyfill.min.js"></script>
-  <script src="//unpkg.com/vue@latest/dist/vue.min.js"></script>
-  <script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
-  <script>
-    const app = new Vue({
-      el: '#app',
-      delimiters: ['{[{', '}]}'],
-    })
-  </script>
-</body>
-
-</html>
+{% extends '../base.html' %}
+{% block content %}
+<h1>Video List</h1>
+<b-container>
+  {% for video in videos %}
+  <b-row>
+    <b-col>
+      {{ video.id }}
+    </b-col>
+    <b-col>
+      {{ video.name }}
+    </b-col>
+    <b-col></b-col>
+  </b-row>
+  {% endfor %}
+</b-container>
+{% endblock %}
