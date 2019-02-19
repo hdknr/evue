@@ -70,6 +70,7 @@
     "babel-plugin-wildcard": "^5.0.0",
     "client-oauth2": "^4.2.3",
     "express": "^4.16.4",
+    "ip": "^1.1.5",
     "karma-chrome-launcher": "^2.2.0",
     "nunjucks": "^3.1.7",
     "sequelize": "^4.42.0",

@@ -4,6 +4,7 @@ import express from 'express'
 import nunjucks from 'nunjucks'
 import path from 'path'
 import orm from '../db'
+import ip from 'ip'
 
 const _port = 9001 // TODO: configuration
 const _ip = '0.0.0.0' // TODO: configuration
@@ -25,6 +26,7 @@ async function home (req, res) {
 }
 
 export async function initWebServer (mainWindow) {
+  console.log('IP address', ip.address())
   if (mainWindow) {
     // console.log(templates, __dirname)
     server.set('view engine', 'html')
