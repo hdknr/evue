@@ -14,7 +14,20 @@
   <h1>Hello</h1>
 
   <div id="app">
-
+    <b-container>
+      <!-- http://mozilla.github.io/nunjucks/templating.html#for -->
+      {% for video in videos %}
+      <b-row>
+        <b-col>
+          {{ video.id }}
+        </b-col>
+        <b-col>
+          {{ video.name }}
+        </b-col>
+        <b-col></b-col>
+      </b-row>
+      {% endfor %}
+    </b-container>
   </div>
 
   <!-- https://bootstrap-vue.js.org/docs -->
